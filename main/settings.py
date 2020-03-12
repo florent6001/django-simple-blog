@@ -142,10 +142,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Formulaire de contact en bootstrap
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'  # Message flash
 
 # Configuration des emails
-EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST= config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_PASSWORD =config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL= config('EMAIL_USE_SSL')
+EMAIL_USE_TLS= config('EMAIL_USE_TLS')
+
 # Email à laquelle envoyer les formulaires de contact
 CONTACT_EMAIL = config('CONTACT_EMAIL')
 
