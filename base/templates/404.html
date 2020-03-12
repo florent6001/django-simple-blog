@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Erreur 404{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-12 text-center p-5">
+		<h1>Page introuvable</h1>
+		<p>Vous essayez d'accéder à une page qui n'existe pas</p>
+		<a href="{% url 'homepage' %}" class="btn btn-primary">Revenir à la page d'accueil</a>
+	</div>
+</div>
+
+{% endblock %}

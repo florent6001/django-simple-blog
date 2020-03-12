@@ -1,3 +1,4 @@
+from django.conf.urls import handler404
 from django.urls import include, path
 from django.contrib import admin
 from django.conf.urls.static import static
@@ -13,6 +14,8 @@ sitemaps = {
 	'categories': CategorySitemap,
 }
 
+handler404 = 'base.views.custom_404'
+
 urlpatterns = [
     path('', include('base.urls')),
     path('contact', include('contact.urls')),
@@ -20,6 +23,4 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps }),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

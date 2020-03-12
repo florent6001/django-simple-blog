@@ -12,3 +12,8 @@ def mentions_legales(request):
 
 def confidentialite_donnees(request):
 	return render(request, 'confidentialite_donnees.html')
+
+def custom_404(request, exception):
+    response = render(request, "404.html")
+    response.status_code = 404
+    return response	
