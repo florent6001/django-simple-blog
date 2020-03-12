@@ -5,7 +5,7 @@ from .models import Post, Category
 
 
 def index(request):
-    posts_data = Post.objects.filter(is_draft=False)
+    posts_data = Post.objects.filter(is_draft=False).order_by('-created_at')
     paginator = Paginator(posts_data, 5)
 
     page = request.GET.get('page')
@@ -17,7 +17,7 @@ def index(request):
 
 def show_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    posts_data = Post.objects.filter(category_id=category.id, is_draft=False)
+    posts_data = Post.objects.filter(category_id=category.id, is_draft=False).order_by('-created_at')
     paginator = Paginator(posts_data, 5)
 
     page = request.GET.get('page')
