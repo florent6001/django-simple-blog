@@ -30,7 +30,6 @@ Si vous rencontrez un problème lors de l'utilisation de ce projet. Merci de cr�
 ## Fonctionnalités à venir
 Voici une liste des fonctionnalités à venir prévu dans l'application :
 
-- Créer une erreur 404
 - Changer l'icon toggler pour une plus fine
 - Ajouter un système de commentaire (voir disqus)
 - Ajouter schema.org dans les fichiers HTML afin d'améliorer le référencement naturel du projet
