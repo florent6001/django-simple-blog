@@ -1,0 +1,24 @@
+footer {
+    background-color: $primary;
+    min-height: 100px;
+    padding: 20px;
+}
+
+footer a{
+    color: #fff !important;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul, footer ul li {
+    list-style-type: none;
+    padding: 4px 0px;
+    padding-left: 0px;
+}
+
+footer a i.fa {
+    margin-right: 10px;
+    font-size: 30px;
+}

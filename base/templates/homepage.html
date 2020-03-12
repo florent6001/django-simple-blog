@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block body %}
+
+<section class="hero">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 vertical-center">
+                    <h1 class="display-4 text-white">Un professionnel du web pour vous accompagner.</h1>
+                    <br>
+                    <p class="lead text-white">Florent Vandroy est un professionnel du web spécialisé dans le développement de site internet.</p>
+                    <br>
+                    <a href="#aboutme" class="btn btn-secondary btn-padding">En savoir plus</a>
+                </div>
+                <div class="col-md-6 d-none d-md-block">
+                    <img data-src="{% static 'img/homepage/web-developer.svg' %}" alt="Image d'un développeur web undraw" class="img-fluid lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apprendre à me connaitre -->
+<section id="aboutme">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pt-5">
+                <img data-src="{% static 'img/homepage/code_review.svg' %}" alt="Image apprendre à me connaitre" class="img-fluid lazy">
+            </div>
+            <div class="offset-md-1 col-md-5 pt-5">
+                <span class="text-orange">Apprendre à me connaître</span>
+                <h2 class="pt-3 font-weight-bold">Travailler Avec Un Développeur Passionné</h2>
+                <p class="pt-1 connaitre-text">
+                    Passionné par le développement web depuis plusieurs années, j'ai effectué pendant deux ans une alternance au Crédit Agricole Charente-Périgord afin obtenir un titre professionnel WebDesigner (équivalent BTS). 
+                    <br><br>
+                    Titre professionnel obtenu, je suis aujourd'hui auto-entrepreneur et développe des sites pour les professionnels et les particuliers. 
+                </p>
+                <a href="{% url 'contact' %}" class="btn btn-secondary btn-padding">Me contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mes services -->
+<section class="pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divide">
+                    <span class="text-orange">Mes services</span>
+                    <h2 class="pt-3 font-weight-bold">Transformer Vos Idées En Réalité</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row services">
+            <div class="col-md-6">
+                <div class="service h-100">
+                    <div class="row h-100">
+                        <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+                            <div class="icon">
+                                <i class="fa fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8 pt-4">
+                            <h3>Développement Web</h3>
+                            <p>Le code est optimiser afin de réduire les temps de chargement sur le site.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service h-100">
+                    <div class="row h-100">
+                        <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+                            <div class="icon">
+                                <i class="fa fa-paint-brush"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8 pt-4">
+                            <h3>Web Design</h3>
+                            <p>Le design du site est adapté selon vos souhaits et vos goûts !</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service h-100">
+                    <div class="row h-100">
+                        <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+                            <div class="icon">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8 pt-4">
+                            <h3>Référencement naturel</h3>
+                            <p>Le code utilise les bonnes pratiques du web afin d'améliorer le référencement naturel du site.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service h-100">
+                    <div class="row h-100">
+                        <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+                            <div class="icon">
+                                <i class="fa fa-mobile"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8 pt-4">
+                            <h3>Responsive Design</h3>
+                            <p>Le site est adapté selon la taille de l'écran utilisé (téléphone, tablette, ordinateur).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Derniers articles -->
+<section class="pt-5">
+    <div class="jumbotron latest-news">
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-4 vertical-center">
+                    <div class="card w-100">
+                        <img class="card-img-top lazy" data-src="{{ post.thumbnail_img.url }}" alt="Image de l'article {{ post.title }}">
+                        <div class="card-body">
+                            <p>{{ post.created_at|naturalday }}</p>
+                            <h5 class="h3 card-title font-weight-bold">{{ post.title }}</h5>
+                            <p class="card-text">
+                                {{ post.content|truncatewords:15|striptags|safe }}
+                            </p>
+                            <a href="{% url 'show_post' post.slug %}" class="btn btn-secondary">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Les technologies que j'utilise -->
+<section class="pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pt-3 font-weight-bold pb-3 h3">Les Outils Que J'utilise :</h2>
+                <div class="row tools">
+                    <div class="col-md-3 col-6 py-2">
+                        <img data-src="{% static 'img/homepage/tools/django.png' %}" alt="Logo de Django" class="img-fluid lazy">
+                    </div> 
+                    <div class=" col-md-3 col-6 py-2">
+                        <img data-src="{% static 'img/homepage/tools/symfony.png' %}" alt="Logo de Symfony" class="img-fluid lazy">
+                    </div>
+                    <div class="col-md-3 col-6 py-2">
+                        <img data-src="{% static 'img/homepage/tools/wordpress.png' %}" alt="Logo de WordPress" class="img-fluid lazy">
+                    </div>
+                    <div class="col-md-3 col-6 py-2">
+                        <img data-src="{% static 'img/homepage/tools/github.png' %}" alt="Logo de Github" class="img-fluid lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+    var cw = $('.icon').width();
+    $('.icon').css({'height':cw+'px'});
+
+    $(window).resize(function() {
+        var cw = $('.icon').width();
+        $('.icon').css({'height':cw+'px'});
+    });
+</script>
+
+{% endblock %}

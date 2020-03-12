@@ -1,0 +1,16 @@
+{% load humanize %}
+
+<div class="row post mt-5">
+	<div class="col-md-12">
+		<div class="post-box">
+            <img data-src="{{ post.thumbnail_img.url }}" alt="Image de l'article {{ post.title }}" class="lazy img-fluid">
+			<h2 class="font-weight-bold mb-3 pt-3"><a href="{% url 'show_post' post.slug %}">{{ post.title }}</a></h2>
+			<div class="d-flex justify-content-between">
+				<p><i class="fa fa-folder-o"></i> <a href="{% url 'show_category' post.category_id.slug %}">{{ post.category_id.title }}</a></p>
+				<p><i class="mf-3 fa fa-clock-o"></i> {{ post.created_at|naturalday|title }}</p>
+			</div>
+            <p>{{ post.content|truncatewords:35|striptags|safe }}</p>
+			<a href="{% url 'show_post' post.slug %}" class="btn btn-primary">Lire la suite</a>
+		</div>
+	</div>
+</div>

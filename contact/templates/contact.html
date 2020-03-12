@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Me contacter {% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-5">
+				<h2>Une question, un renseignement ? <br></h2>
+				<p class="pt-3">
+					Vous avez des questions concernant mes services ou ma manière de travailler ? N'hésitez pas à remplir le formulaire de contact ou à m'envoyer un email à l'adresse <a href="mailto:florentvandroy@gmail.com">florentvandroy@gmail.com</a>. <br><br>
+					Si vous souhaitez un devis, vous pouvez me contacter sois à l'aide du formulaire. Sois faire la demande directement sur mon profil malt en cliquant <a href="https://www.malt.fr/profile/florentvandroy">ICI</a>.
+				</p>
+			</div>
+			<div class="md-offset-1 col-md-6">
+				<h1>Me contacter</h1>
+				{% if messages %}
+				    {% for message in messages %}
+				    	<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+				    {% endfor %}
+				{% endif %}
+				<form action="{% url 'contact' %}" method="post">
+				    {% csrf_token %}
+				    <div class="row">
+				    	<div class="col-md-6">
+				    		{{ form.first_name|as_crispy_field  }}
+				    	</div>
+						<div class="col-md-6">
+				    		{{ form.last_name|as_crispy_field  }}
+				    	</div>
+				    	<div class="col-md-12">
+				    		{{ form.email|as_crispy_field  }}
+				    	</div>
+						<div class="col-md-12">
+				    		{{ form.message|as_crispy_field  }}
+				    	</div>
+				    </div>
+				    <p>* Tous les champs sont obligatoires.</p>
+				    <input type="submit" value="Envoyer ma demande de contact" class="btn btn-primary">
+				</form>	
+			</div>
+		</div>
+	</div>
+{% endblock %}

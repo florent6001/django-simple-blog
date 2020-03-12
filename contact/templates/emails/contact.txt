@@ -1,0 +1,6 @@
+Bonjour, Quelqu'un à laisser une demande de contact.
+Voici les informations de contact :
+Nom : {{ data.last_name }}
+Prénom : {{ data.first_name }}
+Adresse email : {{ data.email }}
+Message : {{ data.message }}

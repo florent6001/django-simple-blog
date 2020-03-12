@@ -1,0 +1,81 @@
+// Général
+.divide {
+    max-width: 350px;
+}
+
+.btn-padding {
+    padding: 15px 25px;
+}
+
+span.text-orange{
+    color: #bd5600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+// Jumbotron
+.jumbotron {
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    border-radius: 0px
+}
+
+.hero .jumbotron {
+    min-height: calc(100vh - 100px);
+}
+
+// Me connaitre
+.connaitre-text{
+    font-size: 16px;
+}
+
+
+// Services section
+.services h3{
+    font-weight: 600;
+}
+
+.service {
+    border-radius: 25px;
+    padding: 20px;
+    -webkit-box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.1);
+}
+
+.services .col-md-6 {
+    margin-top: 20px;
+}
+
+.services .icon {
+    width: 100%;
+    max-width: 150px;
+    line-height: 70px;
+    background: $primary;
+    color: #fff;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .icon .fa{
+    font-size: 50px;
+}
+
+// tools
+
+.tools {
+    align-items: center;
+}
+
+.tools img {
+    height: auto;
+    width: 100%;
+}
+
+.latest-news {
+    background-color: $primary !important;
+}

@@ -1,0 +1,9 @@
+{% extends 'blog_base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block blog_body %}
+	<img data-src="{{ post.thumbnail_img.url }}" alt="Image de mise en avant {{ post.title }}" class="lazy img-fluid mb-3 w-100">
+	<h1 class="mb-3 font-weight-bold">{{ post.title }}</h1>
+	{{ post.content|safe }}
+{% endblock %}

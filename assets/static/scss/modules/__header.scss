@@ -1,0 +1,37 @@
+header{
+    background-color: $primary;
+}
+
+.navbar {
+    font-family: 'MontSerrat', sans-serif;
+    min-height: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.navbar .nav-link, .navbar .navbar-brand{
+    color: #fff !important;
+}
+
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+.navbar .nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar .contact-btn{
+    background-color: #ffbe07;
+    color: #000 !important;
+    padding: 10px 20px !important;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url('/static/img/navbar-toggler.png');
+    height: 25px;
+    width: 25px;
+    margin: 3px;
+}

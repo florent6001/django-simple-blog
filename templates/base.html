@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Découvrer le blog du développeur web Florent Vandroy. Jeune développeur passionné par le développement web (Django, Wordpress, Symfony, ...).">
+		<title>{% block title %}Développeur web freelance à Bergerac{% endblock %} - Florent Vandroy</title>
+
+        <link type="text/css" href="{% static 'css/app.min.css' %}" rel="stylesheet" media="screen">
+		
+		<link rel="preconnect" href="https://www.google-analytics.com">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-sm navbar-dark">
+				<div class="container">
+					<a class="navbar-brand" href="{% url 'homepage' %}">Florent Vandroy</a>
+					<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+					aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="collapsibleNavId">
+						<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'homepage' %}">Accueil</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link contact-btn" href="{% url 'contact' %}">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		{% block body %}{% endblock %}
+		
+		<footer class="mt-5">
+			<div class="container">
+				<div class="row text-white">
+                    <div class="col-md-6">
+                        <h4 class="pl-4 pb-3">Florent Vandroy</h4>
+                        <p class="pl-4">
+                            <a href="https://twitter.com/Florent_Vandroy"><i class="fa fa-twitter"></i></a>
+                            <a href="https://github.com/florent6001"><i class="fa fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/florent-vandroy/"><i class="fa fa-linkedin"></i></a>
+                            <br><br>
+                            Développeur Web Freelance et blogueur à Bergerac. Propose de la création de site internet et du développement de site sur-mesure.
+                        </p>
+                    </div>
+					<div class="col-md-3">
+						<h4 class="pl-4 pb-3">Informations légales</h4>
+						<ul class="pl-4">
+							<li><a href="{% url 'mentions_legales' %}">Mentions légales</a></li>
+							<li><a href="{% url 'confidentialite_donnees' %}">Politique de confidentialité des données</a></li>
+							<li><a href="{% url 'contact' %}">Me contacter</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4 class="pl-4 pb-3">Catégories du blog</h4>
+						<ul class="pl-4">
+                            {% for category in categories %}
+                                <li><a href="{% url 'show_category' category.slug %}">{{ category.title }}</a></li>
+                            {% endfor %}
+						</ul>
+					</div>
+                    <div class="col-md-12 pt-5">
+                        <p class="text-center">Site développé avec Django, code visible sur mon Github</p>
+                    </div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- CSS à la fin pour render blocking content -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123751778-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '{{ analytics_id }}');
+		</script>
+		<script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@13.0.1/dist/lazyload.min.js"></script>
+        <script>
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy"
+            });
+        </script>
+		<script async src="{% static 'js/popper.min.js' %}"></script>
+		<script async src="{% static 'js/bootstrap.min.js' %}"></script>
+        {% block javascript %}{% endblock %}
+	</body>
+</html>

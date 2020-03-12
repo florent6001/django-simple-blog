@@ -1,0 +1,27 @@
+{% extends 'blog_base.html' %}
+{% load humanize %}
+
+{% block title %} Liste des articles du blog {% endblock %}
+
+{% block blog_body %}
+    <span class="text-orange">Blog</span>
+	<h1 class="mb-5">Liste des articles du blog</h1>
+	{% for post in posts %}
+		{% include 'post_foreach.html' %}
+	{% endfor %}
+    <div class="row pt-5">
+        <div class="col-md-12 text-center">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {% if posts.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Précédent</a></li>
+                    {% endif %}
+                    <li class="page-item active"><a class="page-link" href="#">Page {{ posts.number }} sur {{ posts.paginator.num_pages }}</a></li>
+                    {% if posts.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">Suivant </a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
