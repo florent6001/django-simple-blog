@@ -120,12 +120,12 @@
 </section>
 
 <!-- Derniers articles -->
-<section class="pt-5">
+<section>
     <div class="jumbotron latest-news">
         <div class="container">
             <div class="row">
                 {% for post in posts %}
-                <div class="col-md-4 vertical-center">
+                <div class="col-md-4 vertical-center pt-5">
                     <div class="card w-100">
                         <img class="card-img-top lazy" data-src="{{ post.thumbnail_img.url }}" alt="Image de l'article {{ post.title }}">
                         <div class="card-body">
@@ -145,7 +145,7 @@
 </section>
 
 <!-- Les technologies que j'utilise -->
-<section class="pt-5">
+<section class="p-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
