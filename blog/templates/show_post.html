@@ -6,7 +6,7 @@
 <meta property="og:title" content="{{ post.title }}" />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ post.thumbnail_img.url }}" />
-<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}" />
+<meta property="og:description" content="{{ post.content|safe|truncatewords:25 }}" />
 {% endblock %}
 
 {% block blog_body %}

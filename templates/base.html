@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Découvrer le blog du développeur web Florent Vandroy. Jeune développeur passionné par le développement web (Django, Wordpress, Symfony, ...).">
 		<title>{% block title %}Développeur web freelance à Bergerac{% endblock %} - Florent Vandroy</title>
-		{% block meta %}{% endblock %}
 		<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}" />
+		{% block meta %}{% endblock %}
 
 		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
         <link type="text/css" href="{% static 'css/app.min.css' %}" rel="stylesheet" media="screen">
@@ -108,7 +108,7 @@
 			 "https://www.instagram.com/florent_vdry",
 			 "https://www.linkedin.com/in/florent-vandroy/",
 			 "https://github.com/florent6001/"
-		  ],
+		  ]
 		}
 		</script>
         {% block javascript %}{% endblock %}
