@@ -24,15 +24,12 @@ Si vous rencontrez un problème lors de l'utilisation de ce projet. Merci de cr�
 - Intégration de Google analytics
 - Supporte les fichiers SCSS (SASS)
 - Optimiser pour google pagespeed (Retire automatiquement les classes non utilisé et minifie les fichiers CSS avec PurgeCSS et postcss)
-- Compressiin GZIP
 - Lazy loading des images
 
 ## Fonctionnalités à venir
 Voici une liste des fonctionnalités à venir prévu dans l'application :
 
 - Changer l'icon toggler pour une plus fine
-- Ajouter un système de commentaire (voir disqus)
-- Ajouter schema.org dans les fichiers HTML afin d'améliorer le référencement naturel du projet
 
 Vous pensez qu'une fonctionné non-listé serait intéréssante ? Merci de m'en faire part.
 

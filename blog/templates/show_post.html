@@ -2,8 +2,41 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block meta %}
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ post.thumbnail_img.url }}" />
+<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}" />
+{% endblock %}
+
 {% block blog_body %}
-	<img data-src="{{ post.thumbnail_img.url }}" alt="Image de mise en avant {{ post.title }}" class="lazy img-fluid mb-3 w-100">
-	<h1 class="mb-3 font-weight-bold">{{ post.title }}</h1>
-	{{ post.content|safe }}
+	<div itemtype="http://schema.org/BlogPosting">
+		<img data-src="{{ post.thumbnail_img.url }}" alt="Image de mise en avant {{ post.title }}" class="lazy img-fluid mb-3 w-100">
+		<h1 class="mb-3 font-weight-bold" itemprop="articleBody">{{ post.title }}</h1>
+		<div itemprop="description">
+			{{ post.content|safe }}
+		</div>
+	</div>
+	<div class="pt-5">
+		<h2>Commentaires : </h2>
+		<div id="disqus_thread"></div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+var disqus_config = function () {
+	this.page.url = "{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}";
+	this.page.identifier = "{{ request.path }}";
+};
+
+
+(function() {
+	var d = document, s = d.createElement('script');
+	s.src = 'https://florent-vandroy.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();
+</script>
+
 {% endblock %}

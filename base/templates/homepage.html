@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load humanize %}
 
+{% block meta %}
+<meta property="og:title" content="Florent Vandroy | Développeur web freelance à Bergerac" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static '/img/homepage/code_review.svg' %}" />
+{% endblock %}
+
 {% block body %}
 
 <section class="hero">
@@ -33,7 +39,7 @@
                 <span class="text-orange">Apprendre à me connaître</span>
                 <h2 class="pt-3 font-weight-bold">Travailler Avec Un Développeur Passionné</h2>
                 <p class="pt-1 connaitre-text">
-                    Passionné par le développement web depuis plusieurs années, j'ai effectué pendant deux ans une alternance au Crédit Agricole Charente-Périgord afin obtenir un titre professionnel WebDesigner (équivalent BTS). 
+                    Passionné par le développement web depuis plusieurs années, j'ai effectué pendant deux ans une alternance au Crédit Agricole Charente-Périgord afin d'obtenir un titre professionnel WebDesigner (équivalent BTS). 
                     <br><br>
                     Titre professionnel obtenu, je suis aujourd'hui auto-entrepreneur et développe des sites pour les professionnels et les particuliers. 
                 </p>
@@ -65,7 +71,7 @@
                         </div>
                         <div class="col-md-8 pt-4">
                             <h3>Développement Web</h3>
-                            <p>Le code est optimiser afin de réduire les temps de chargement sur le site.</p>
+                            <p>Le code est optimisé afin de réduire les temps de chargement sur le site.</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +126,7 @@
 </section>
 
 <!-- Derniers articles -->
-<section>
+<section class="pt-5">
     <div class="jumbotron latest-news">
         <div class="container">
             <div class="row">

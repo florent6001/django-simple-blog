@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
 from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField

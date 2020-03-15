@@ -5,14 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Découvrer le blog du développeur web Florent Vandroy. Jeune développeur passionné par le développement web (Django, Wordpress, Symfony, ...).">
 		<title>{% block title %}Développeur web freelance à Bergerac{% endblock %} - Florent Vandroy</title>
+		{% block meta %}{% endblock %}
+		<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}" />
 
+		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
         <link type="text/css" href="{% static 'css/app.min.css' %}" rel="stylesheet" media="screen">
-		
 		<link rel="preconnect" href="https://www.google-analytics.com">
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-sm navbar-dark">
+			<nav class="navbar navbar-expand-sm navbar-dark" itemscope itemtype="http://schema.org/SiteNavigationElement">
 				<div class="container">
 					<a class="navbar-brand" href="{% url 'homepage' %}">Florent Vandroy</a>
 					<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -21,14 +23,14 @@
 					</button>
 					<div class="collapse navbar-collapse" id="collapsibleNavId">
 						<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-							<li class="nav-item">
-								<a class="nav-link" href="{% url 'homepage' %}">Accueil</a>
+							<li class="nav-item" itemprop="url">
+								<a class="nav-link" itemprop="name" href="{% url 'homepage' %}">Accueil</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
+							<li class="nav-item" itemprop="url">
+								<a class="nav-link" itemprop="name" href="{% url 'blog_index' %}">Blog</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link contact-btn" href="{% url 'contact' %}">Contact</a>
+							<li class="nav-item" itemprop="url">
+								<a class="nav-link contact-btn" itemprop="name" href="{% url 'contact' %}">Contact</a>
 							</li>
 						</ul>
 					</div>
@@ -95,6 +97,20 @@
         </script>
 		<script async src="{% static 'js/popper.min.js' %}"></script>
 		<script async src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script type="application/ld+json">
+		{
+		 "@context" : "http://schema.org",
+		 "@type" : "Organization",
+		 "name" : "Florent Vandroy",
+		 "url" : "https://florent-vandroy.fr",
+		 "sameAs" : [
+		   	 "https://twitter.com/florent_vandroy",
+			 "https://www.instagram.com/florent_vdry",
+			 "https://www.linkedin.com/in/florent-vandroy/",
+			 "https://github.com/florent6001/"
+		  ],
+		}
+		</script>
         {% block javascript %}{% endblock %}
 	</body>
 </html>
