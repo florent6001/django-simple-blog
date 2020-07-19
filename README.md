@@ -6,9 +6,11 @@
 Django-simple-blog is the code of my personal blog / portfolio. You can take the source and edit it as you want. 
 If you deploy this project in production, i just ask you to change the html template.
 
-## Live demo
-Click [here](https://florent-vandroy.fr/) to visit my website, using this repository.
-
+## Screenshot
+![HomePage](https://image.noelshack.com/fichiers/2020/29/7/1595194468-homepage.png)
+![Contact Page](https://image.noelshack.com/fichiers/2020/29/7/1595194469-contact-page.png)
+![Blog Page](https://image.noelshack.com/fichiers/2020/29/7/1595194468-blog-page.png)
+![Post page](https://image.noelshack.com/fichiers/2020/29/7/1595194526-post-page.png)
 ## Installation
 - Clone this repository.
 ```
